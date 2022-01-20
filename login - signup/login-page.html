@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="style.css" rel="stylesheet">
+    <title>Welcome To Login Form</title>
+</head>
+
+<body>
+    <div id="main">
+        <div class="h-tag">
+            <h2>Welcome To My Account Login</h2>
+        </div>
+        <div class="login">
+            <table cellspacing="2" align="center" cellpadding="8" border="0">
+                <tr>
+                    <td>Enter User Name :</td>
+                    <td><input type="text" placeholder="Enter user name here" id="email" class="tb" /></td>
+                </tr>
+                <tr>
+                    <td>Enter Password :</td>
+                    <td><input type="password" placeholder="Enter Password here" id="pwd1" class="tb" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Reset" onclick="clearFunc()" class="btn" />
+                        <input type="submit" value="Login" class="btn" onClick="login()" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var uname = document.getElementById("email").value;
+            var pwd = document.getElementById("pwd1").value;
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if (uname == '') {
+                alert("please enter user name.");
+            }
+            else if (pwd == '') {
+                alert("enter the password");
+            }
+            else if (!filter.test(uname)) {
+                alert("Enter valid email id.");
+            }
+            else if (pwd.length < 6 || pwd.length > 6) {
+                alert("Password min and max length is 6.");
+            }
+            else {
+                alert('Thank You for Login & You are Redirecting to Campuslife Website');
+            }
+        }
+        function clearFunc() {
+            document.getElementById("email").value = "";
+            document.getElementById("pwd1").value = "";
+        }
+
+    </script>
+
+</body>
+
+</html>
